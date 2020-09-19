@@ -2,8 +2,10 @@ import React, {useState, useEffect} from 'react';
 import Axios from 'axios';
 import { Product } from './Product';
 import {ErrorMsg} from '../ErrorMsg'
+import {useHistory} from 'react-router-dom';
 
 export const EditProduct = (props) => {
+    const history = useHistory()
     const[product, setProduct] = useState({
         name:'',
         description:'',
@@ -39,6 +41,7 @@ export const EditProduct = (props) => {
         e.preventDefault();
         try {
             await Axios.put(`/products/${props.match.params.id}`, product);
+            history.push("/products/"+product._id);
         } catch (error) {
             
         }

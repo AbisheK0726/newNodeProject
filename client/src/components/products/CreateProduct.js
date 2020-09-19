@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import Axios from 'axios';
 import { Product } from './Product';
-import {ErrorMsg} from '../ErrorMsg'
+import {ErrorMsg} from '../ErrorMsg';
+import {useHistory} from 'react-router-dom';
 
 export const CreateProduct = () => {
+    const history = useHistory()
     const[product, setProduct] = useState({
         name:'',
         description:'',
@@ -21,6 +23,7 @@ export const CreateProduct = () => {
         e.preventDefault();
         try {
             await Axios.post("/products", product);
+            history.push("/products");
         } catch (error) {
             error.response.data.error.message && setError(error.response.data.error.message);
             

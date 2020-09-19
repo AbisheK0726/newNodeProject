@@ -6,6 +6,7 @@ import {ErrorMsg} from '../ErrorMsg'
 
 export const Products = () => {
     const [products,setProducts] = useState();
+    
     const [error, setError] = useState();
     
     useEffect(() =>{
