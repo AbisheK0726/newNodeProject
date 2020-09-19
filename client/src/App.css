@@ -1,0 +1,17 @@
+*{
+  box-sizing: border-box;
+  margin:0;
+  padding: 0;
+
+}
+
+.products{
+  display:flex;
+  justify-content:center;
+  
+}
+.product{
+  background: salmon;
+  margin: 0px 4%;
+  padding:1% 5%;
+}
